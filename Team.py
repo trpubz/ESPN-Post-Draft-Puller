@@ -8,14 +8,6 @@ from enum import Enum
 import Player
 
 
-class Team:
-    name: str
-    roster: [{Enum: Player}]
-
-    def __init__(self, name):
-        self.name = name
-
-
 class RosSpot(Enum):
     C = "C"
     IF1B = "IF1B"
@@ -38,3 +30,17 @@ class RosSpot(Enum):
     P2 = "P2"
     RP1 = "RP1"
     RP2 = "RP2"
+
+
+class Team:
+    name: str
+    roster: [{RosSpot: Player}]
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_player(self, pos: RosSpot, plyr: Player):
+        if self.roster[pos] is None:
+            self.roster[pos] = plyr
+
+
