@@ -5,11 +5,12 @@
 # lastUpdate DD MMM YYYY
 
 from enum import Enum
+import Player
 
 
 class Team:
     name: str
-    roster: [{RosSpot: Player}]
+    roster: [{Enum: Player}]
 
     def __init__(self, name):
         self.name = name
