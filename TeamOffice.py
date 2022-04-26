@@ -149,7 +149,7 @@ class Team:
                     self.roster[RosSpot.RP1] = plyr
                     print(f"rostered {plyr.name} on {self.name} at {RosSpot.RP1}")
                     break
-                elif self.roster.get(RosSpot.RP2) is None:]'bnv [j[ui'
+                elif self.roster.get(RosSpot.RP2) is None:
                     self.roster[RosSpot.RP2] = plyr
                     print(f"rostered {plyr.name} on {self.name} at {RosSpot.RP2}")
                     break
