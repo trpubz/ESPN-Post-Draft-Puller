@@ -21,8 +21,7 @@ players: [Player] = []
 def load_Player_Universe():
     with open("/Users/Shared/Baseball HQ/keysTRP.json", "r") as file:
         jsonData = json.load(file)
-    print("Datatype of variable: ", type(jsonData))
-    print(jsonData)
+    print("loaded player universe")
     for i in jsonData:
         p = Player(espnid=i["idESPN"], fgid=i["idFangraphs"], name=i["name"], pos=i["pos"], tm=i["tm"])
         players.append(p)
@@ -36,6 +35,10 @@ def driver_config() -> webdriver:
 
 
 def get_recap_html(LeagueId: str) -> str:
+    """
+
+    :type LeagueId: a string representing the league ID in which one plays
+    """
     driver = driver_config()
     driver.get("https://fantasy.espn.com/baseball/league/draftrecap?leagueId=" + LeagueId)
     driver.implicitly_wait(5)
@@ -44,8 +47,9 @@ def get_recap_html(LeagueId: str) -> str:
             .get_attribute("outerHTML")
     except exceptions as e:
         print(e.message)
-    # print(teamTables)
+    print("pulled HTML!")
     driver.close()
+    print("closed driver")
     return teamTables
 
 
@@ -69,11 +73,9 @@ def parse_tables(recap: str):
                 if plyr.__eq__(other=(playerName, playerTeam)):
                     plyr.set_draft_details(tm=teamName, value=draftValue)
                     tm.add_player(plyr=plyr)
-
+                    break
 
         teams.append(tm)
-        print(teamName)
-    # print(len(teamTables))
 
 
 if __name__ == '__main__':
