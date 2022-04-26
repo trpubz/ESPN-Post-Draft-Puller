@@ -1,9 +1,9 @@
 # Scrape the ESPN Draft Results webpage and export data to JSON
 # by pubins.taylor
-# v0.3
+# v0.4
 # created 21APR2022
-# loading Player Universe
-# lastUpdate 24APR2022
+# instead of roster spot placement, just top 9 hitters and top 7 pitchers make the 'starting spots'
+# lastUpdate 26APR2022
 
 from TeamOffice import Team
 from Player import *

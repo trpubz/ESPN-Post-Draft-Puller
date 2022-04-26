@@ -7,7 +7,7 @@
 from enum import Enum
 import Player
 
-
+# TODO: refactor or delete RosSpot for just BAT1, BAT2, ect...SARM1, RARM1, ARM1, ect....
 class RosSpot(Enum):
     C = "C"
     IF1B = "1B"
