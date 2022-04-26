@@ -63,12 +63,12 @@ def parse_tables(recap: str):
             draftValue = int(roundData[2].get_text().strip("$"))
             # Player data is segmented into 3 span elements, 1st is name, 2nd is team, 3rd is pos
             playerName = roundData[1].select("span")[0].get_text()
-            # stip of characters and force uppercase
+            # strip of characters and force uppercase
             playerTeam: str = roundData[1].select("span")[1].get_text().strip(", ").upper()
             for plyr in players:
                 if plyr.__eq__(other=(playerName, playerTeam)):
                     plyr.set_draft_details(tm=teamName, value=draftValue)
-                    tm.add_player(plyr=plyr, draftValue=draftValue)
+                    tm.add_player(plyr=plyr)
 
 
         teams.append(tm)
