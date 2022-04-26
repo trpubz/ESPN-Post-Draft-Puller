@@ -95,16 +95,34 @@ class Team:
                     self.roster[RosSpot.IF2B] = plyr
                     print(f"rostered {plyr.name} on {self.name} at {RosSpot.IF2B}")
                     break
+                # if the person in the roster spot was drafted for less money, bump them
+                elif self.roster[RosSpot.IF2B].draftedValue < plyr.draftedValue:
+                    leftBench = (self.roster[RosSpot.IF2B], RosSpot.IF2B)
+                    self.roster[RosSpot.IF2B] = plyr
+                    print(f"rostered {plyr.name} on {self.name} at {RosSpot.IF2B}")
+                    return leftBench
             elif pos == RosSpot.IF3B.value:
                 if self.roster.get(RosSpot.IF3B) is None:
                     self.roster[RosSpot.IF3B] = plyr
                     print(f"rostered {plyr.name} on {self.name} at {RosSpot.IF3B}")
                     break
+                # if the person in the roster spot was drafted for less money, bump them
+                elif self.roster[RosSpot.IF3B].draftedValue < plyr.draftedValue:
+                    leftBench = (self.roster[RosSpot.IF3B], RosSpot.IF3B)
+                    self.roster[RosSpot.IF3B] = plyr
+                    print(f"rostered {plyr.name} on {self.name} at {RosSpot.IF3B}")
+                    return leftBench
             elif pos == RosSpot.SS.value:
                 if self.roster.get(RosSpot.SS) is None:
                     self.roster[RosSpot.SS] = plyr
                     print(f"rostered {plyr.name} on {self.name} at {RosSpot.SS}")
                     break
+                # if the person in the roster spot was drafted for less money, bump them
+                elif self.roster[RosSpot.SS].draftedValue < plyr.draftedValue:
+                    leftBench = (self.roster[RosSpot.SS], RosSpot.SS)
+                    self.roster[RosSpot.SS] = plyr
+                    print(f"rostered {plyr.name} on {self.name} at {RosSpot.IFSS}")
+                    return leftBench
             elif pos == RosSpot.OF1.value:
                 if self.roster.get(RosSpot.OF1) is None:
                     self.roster[RosSpot.OF1] = plyr
